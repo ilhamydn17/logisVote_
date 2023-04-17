@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('templates.app');
+});
+
+Route::get('/loginPage', function () {
+    return view('login');
 });
