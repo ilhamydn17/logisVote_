@@ -1,24 +1,46 @@
+@extends('templates.custom')
 
+@section('title', 'Login Page')
+
+@section('in-app')
     <!-- CARD -->
-    <div class="container_custom position-relative">
-      <div class="card text-center mb-3 px-4 py-4 position-absolute top-50 start-50 translate-middle" style="width: 30rem">
-        <div class="card-body">
-          <h2 class="card-title mb-5" style="font-weight: bold">SIGN IN</h2>
-          <!-- FORM LOGIN -->
-          <form action="">
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                <div class="login-brand">
+                    <img src="/img/PP.png" alt="logo" width="150" class="p-2 rounded rounded-5" />
+                </div>
+
+                <div class="card card-primary">
+                    <div class="card-header text-center">
+                        <h4 class="">Login</h4>
+                    </div>
+
+                    <div class="card-body">
+                        <form method="POST" action="" class="needs-validation" novalidate="">
+
+                            <div class="form-group">
+                                <label for="email">Username</label>
+                                <input id="text" type="text" class="form-control" name="username" tabindex="1"
+                                    autofocus />
+
+                            </div>
+                            <div class="form-group">
+                                <div class="d-block">
+                                    <label for="password" class="control-label">Password</label>
+                                </div>
+                                <input id="password" type="password" class="form-control" name="password" tabindex="2" />
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                                    Login
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="input-group mb-2">
-              <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" />
-            </div>
-            <div class="input-group mb-5 mr-5 text-end">
-              <a href="" style="color: black">Forgot Password?</a>
-            </div>
-            <input class="btn btn-primary px-4" type="submit" value="LOGIN" />
-          </form>
-          <!-- END FORM LOGIN -->
         </div>
-      </div>
     </div>
-    <!-- End CARD -->
+@endsection
+<!-- End CARD -->

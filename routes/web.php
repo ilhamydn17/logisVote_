@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('templates.app');
+    return view('logis_vote.index');
 });
 
 Route::get('/loginPage', function () {
-    return view('login');
+    return view('logis_vote.auth.login');
 });

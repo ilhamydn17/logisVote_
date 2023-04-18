@@ -1,0 +1,11 @@
+
+:root{
+    --main-font-color: #4B4F54;
+    --linear-gradient: linear-gradient(to top right, #657faa 0%, #f9c64b 100%);
+}
+
+.custom{
+    background: var(--linear-gradient); margin-top: -50px; height: 100vh;
+    /* pas bikin responsiv kelas ini height nya jangan 100vh */
+}
+
