@@ -16,6 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
+        // ini untuk memanggil kelas-kelas seeder
     }
 }
