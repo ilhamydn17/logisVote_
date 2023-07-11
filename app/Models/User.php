@@ -19,10 +19,14 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        // 'email',
+        // 'username',
+        'nim',
         'password',
     ];
 
+    // supaya tidak menampilkan created_at dan updated_at
+    public $timestamps = false;
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -14,5 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('logis_vote.landing-page');
 });
+
+Route::middleware(['auth'])->group(function () {
+    // ...
+    /* setelah user berhasil login, maka otomatis dalah halaman selanjutnya setelah login, akan dapat *  *  mengakses sebuah variabel yang berisi data user yang sedang login, yaitu auth()->user()
+    */
+    Route::get('/dashboard', function () {
+        $user = auth()->user();
+        return view('logis_vote.home',compact('user'));
+    });
+});
+
+
+Route::get('tes', function () {
+    return view('mazer.index');
+});
+
+
+
