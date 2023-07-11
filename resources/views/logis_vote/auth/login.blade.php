@@ -17,20 +17,36 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="" class="needs-validation" novalidate="">
-
+                        <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate="">
+                            @csrf
                             <div class="form-group">
-                                <label for="email">Username</label>
-                                <input id="text" type="text" class="form-control" name="username" tabindex="1"
+                                <label for="nim">NIM</label>
+                                <input id="nim" type="text" class="form-control @error('nim')
+                                    is-invalid
+                                @enderror" name="nim" tabindex="1"
                                     autofocus />
 
+                                @error('nim')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                 @enderror
                             </div>
                             <div class="form-group">
                                 <div class="d-block">
                                     <label for="password" class="control-label">Password</label>
                                 </div>
-                                <input id="password" type="password" class="form-control" name="password" tabindex="2" />
+                                <input id="password" type="password" class="form-control @error('password')
+                                    is-invalid
+                                @enderror" name="password" tabindex="2" />
+
+                                @error('password')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
+
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                                     Login
