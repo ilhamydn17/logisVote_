@@ -17,11 +17,13 @@ class Candidate extends Model
      'id'
     ];
 
+    protected $with = ['vote_session'];
+
     public function vote(){
         return $this->hasMany(Vote::class);
     }
 
     public function vote_session(){
-        return $this->belongsTo(VoteSession::class);
+        return $this->belongsTo(VoteSession::class,'vote_session_id','id');
     }
 }

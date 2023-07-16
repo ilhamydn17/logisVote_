@@ -28,29 +28,32 @@ class CandidateSeeder extends Seeder
         */
 
         Candidate::create([
-            'voteSession_id'=>1,
+            'vote_session_id'=>1,
             'nama'=>'Fikri Ardiansyah',
             'no_urut' => '01',
-            'visi'=> fake()->text(200),
-            'misi'=> fake()->text(200),
+            // visi
+            'visi'=> 'Menjadi Ketua Umum yang visioner dan berkomitmen untuk membawa organisasi ini menuju prestasi yang lebih tinggi. Melalui kepemimpinan yang kuat dan kerja sama yang erat dengan seluruh anggota, visi saya adalah menciptakan lingkungan yang inklusif, inovatif, dan berdaya saing.',
+            'misi'=> "
+            Misi1, Misi2, misi3
+            ",
             'foto'=> 'candidate-img/fikri.jpeg',
         ]);
 
         Candidate::create([
-            'voteSession_id'=>1,
+            'vote_session_id'=>1,
             'nama'=>'Arya Listyo Kusuma Aji',
             'no_urut' => '02',
-            'visi'=> fake()->text(200),
-            'misi'=> fake()->text(200),
+            'visi'=> 'Visi arya',
+            'misi'=> 'Misi arya',
             'foto'=> 'candidate-img/arya.png',
         ]);
 
         Candidate::create([
-            'voteSession_id'=>1,
+            'vote_session_id'=>1,
             'nama'=>'Novita Ramadhanis',
             'no_urut' => '03',
-            'visi'=> fake()->text(200),
-            'misi'=> fake()->text(200),
+            'visi'=> 'visi tara',
+            'misi'=> 'misi tara',
             'foto'=> 'candidate-img/tara.jpg',
         ]);
 

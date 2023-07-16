@@ -11,13 +11,19 @@ class UserController extends Controller
 {
     public function adminHome(){
         $this->authorize('is-admin');
-        return view('app.admin-home');
+        $lastSession = VoteSession::with('candidates')->latest()->first();
+        return view('app.admin.admin-dashboard', compact('lastSession'));
+    }
+
+    public function adminCandidate(){
+        $this->authorize('is-admin');
+        $candidate = Candidate::with('vote_session')->latest()->get();
+        return view('app.admin.admin-dataKandidat', compact('candidate'));
     }
 
     public function userHome(){
         $this->authorize('is-user');
-        $candidate = VoteSession::with('candidate')->latest()->get();
-        // $candidate = Candidate::all();
-        return view('app.user-home', compact('candidate'));
+        $voteSession = VoteSession::with('candidates')->latest()->first();
+        return view('app.user.user-home', compact('voteSession'));
     }
 }

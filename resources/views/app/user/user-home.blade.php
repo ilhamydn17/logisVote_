@@ -103,13 +103,10 @@
                                         </div>
                                     </div>
                                 @else
-                                    @forelse ($candidate as $item)
+                                    @forelse ($voteSession->candidates as $item)
                                         <div class="col-sm-4">
                                             <div class="card shadow">
                                                 <div class="card-content text-center py-3">
-                                                    {{-- get image path with storage --}}
-                                                    {{-- <img src="{{ Storage::url($item->image) }}"
-                                                class="card-img-top img-fluid" alt="singleminded"> --}}
                                                     <img src="{{ Storage::url($item->foto) }}"
                                                         class="rounded rounded-circle" alt="singleminded"
                                                         width="200px">
@@ -117,32 +114,68 @@
                                                         <h5 class="card-title">{{ $item->nama }}</h5>
                                                         <div>
                                                             <h4>{{ $item->no_urut }}</h4>
-                                                            <a href="" class="btn btn-primary">Visi & Misi</a>
+                                                            <a href="" class="btn btn-primary" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModalLong-{{ $item->id }}">Visi & Misi</a>
 
                                                             {{-- button --}}
                                                             <a class="btn btn-warning" data-bs-toggle="modal"
-                                                                data-class=""
                                                                 data-bs-target="#warning-{{ $item->id }}">Vote</a>
-
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     @empty
-                                        {{-- tampilkan jika kosong --}}
                                     @endforelse
-
-
-
                                 @endif
                             </div>
                         </div>
 
-                        <!--Modal -->
-                        @forelse ($candidate as $item)
-                            <div class="modal fade text-left warning" id="warning-{{ $item->id }}" tabindex="-1"
-                                role="dialog" aria-labelledby="myModalLabel140" aria-hidden="true">
+                         <!--Modal Visi Misi-->
+                        @forelse ( $voteSession->candidates as $item)
+                            <div class="modal fade" id="exampleModalLong-{{ $item->id }}" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Visi & Misi Kandidat</h5>
+                                            <button type="button" class="close" data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                                <i data-feather="x"></i>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5>
+                                                Visi
+                                            </h5>
+                                            <p>
+                                                {{ $item->visi }}
+                                            </p>
+                                            <hr>
+                                            <h5>
+                                                Misi
+                                            </h5>
+                                            <p>
+                                                {{ $item->misi }}
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary ml-1"
+                                                data-bs-dismiss="modal">
+                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Okay</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                        @endforelse
+
+                        <!--Modal Votes -->
+                        @forelse ($voteSession->candidates as $item)
+                            <div class="modal fade text-left warning" id="warning-{{ $item->id }}"
+                                tabindex="-1" role="dialog" aria-labelledby="myModalLabel140" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
                                     value="$item->id">
                                     <div class="modal-content">
@@ -164,7 +197,7 @@
                                                 <span class="d-none d-sm-block">Close</span>
                                             </button>
 
-                                            <a  class="btn btn-warning ml-1" href="{{ route('user.vote', $item) }}">
+                                            <a class="btn btn-warning ml-1" href="{{ route('user.vote', $item) }}">
                                                 <i class="bx bx-check d-block d-sm-none"></i>
                                                 <span class="d-none d-sm-block">Accept</span>
                                             </a>

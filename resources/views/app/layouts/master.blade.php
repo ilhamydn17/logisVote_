@@ -10,6 +10,10 @@
     <link rel="shortcut icon" href="{{ asset('mazer/assets/images/logo/favicon.svg') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('mazer/assets/images/logo/favicon.png') }}" type="image/png">
     <link rel="stylesheet" href="{{ asset('mazer/assets/css/shared/iconly.css') }}">
+    <script src="https://kit.fontawesome.com/5f53d78495.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{{ asset('mazer/assets/extensions/simple-datatables/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('mazer/assets/css/pages/simple-datatables.css') }}">
 
 </head>
 
@@ -34,7 +38,8 @@
             <footer>
                 <div class="footer mb-0 text-muted">
                     <div class="text-center">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="https://saugi.me">Saugi</a></p>
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
+                                href="https://saugi.me">Saugi</a></p>
                     </div>
                 </div>
             </footer>
@@ -43,9 +48,15 @@
     <script src="{{ asset('mazer/assets/js/bootstrap.js') }}"></script>
     <script src="{{ asset('mazer/assets/js/app.js') }}"></script>
 
+    {{-- Data Table --}}
+    <script src="{{ asset('mazer/assets/extensions/simple-datatables/umd/simple-datatables.js') }}"></script>
+    <script src="{{ asset('mazer/assets/js/pages/simple-datatables.js') }}"></script>
+
     <!-- Need: Apexcharts -->
     <script src="{{ asset('mazer/assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('mazer/assets/js/pages/dashboard.js') }}"></script>
+
+
 
     {{-- Sweet Alert --}}
     @include('sweetalert::alert')

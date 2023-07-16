@@ -15,6 +15,7 @@ use App\Actions\Fortify\UpdateUserPassword;
 use Illuminate\Support\Facades\RateLimiter;
 use Laravel\Fortify\Contracts\LoginResponse;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Models\VoteSession;
 use Laravel\Fortify\Contracts\LogoutResponse;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -86,13 +87,16 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::authenticateUsing(function (Request $request) {
             $user = User::where('username', $request->username)->first();
-
+            $voteSession = VoteSession::latest()->first();
             if ($user && Hash::check($request->password, $user->password)) {
                 if ($user->is_voted) {
                     Alert::toast('Anda sudah melakukan voting!', 'error');
                     return false;
+                }elseif($voteSession->session_run == 2 && $user->role == 'user'){
+                    Alert::toast('Belum ada sesi voting saat ini', 'warning');
+                    return false;
                 }
-                Alert::toast('Selamat Datang ' . $user->name, 'success');
+                Alert::toast('Selamat Datang '.$user->name, 'success');
                 return $user;
             }
         });

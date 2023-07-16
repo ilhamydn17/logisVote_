@@ -17,9 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 // --> ROUTE APP <--
 Route::middleware('auth')->group(function () {
-    Route::get('/admin-home', [UserController::class, 'adminHome'])->name('admin.home');
+    // USER
     Route::get('user-home',[UserController::class,'userHome'])->name('user.home');
     Route::get('user/{candidate}/vote', [VoteController::class, 'doVote'])->name('user.vote');
+
+    // ADMIN
+    Route::get('/admin-home', [UserController::class, 'adminHome'])->name('admin.home');
+    Route::get('/admin-candidates', [UserController::class, 'adminCandidate'])->name('admin.candidate');
 });
 
 Route::get('/', function () {
