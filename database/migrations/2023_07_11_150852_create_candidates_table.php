@@ -20,7 +20,6 @@ return new class extends Migration
             $table->text('visi');
             $table->text('misi');
             $table->string('foto');
-            $table->string('periode');
             $table->timestamps();
         });
     }

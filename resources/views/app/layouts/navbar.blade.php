@@ -66,8 +66,8 @@
                 <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="user-menu d-flex">
                         <div class="user-name text-end me-3">
-                            <h6 class="mb-0 text-gray-600">Ilham Yudantyo</h6>
-                            <p class="mb-0 text-sm text-gray-600">Administrator</p>
+                            <h6 class="mb-0 text-gray-600">{{ auth()->user()->name }}</h6>
+                            <p class="mb-0 text-sm text-gray-600">{{ auth()->user()->role }}</p>
                         </div>
                         <div class="user-img d-flex align-items-center">
                             <div class="avatar avatar-md">
@@ -78,16 +78,13 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton" style="min-width: 11rem;">
                     <li>
-                        <h6 class="dropdown-header">Hello, Ilham!</h6>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li>
-                        <a class="dropdown-item" onclick="
+                        <a class="dropdown-item"
+                            href="#"
+                        onclick="
                             event.preventDefault();
                             document.getElementById('logout-form').submit();
-                            "> <i class="icon-mid bi bi-box-arrow-left me-2"></i>
+                            ">
+                            <i class="icon-mid bi bi-box-arrow-left me-2"></i>
                             Logout
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">

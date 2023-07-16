@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{{ asset('mazer/assets/css/main/app-dark.css') }}">
     <link rel="shortcut icon" href="{{ asset('mazer/assets/images/logo/favicon.svg') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('mazer/assets/images/logo/favicon.png') }}" type="image/png">
-
     <link rel="stylesheet" href="{{ asset('mazer/assets/css/shared/iconly.css') }}">
 
 </head>
@@ -35,8 +34,7 @@
             <footer>
                 <div class="footer mb-0 text-muted">
                     <div class="text-center">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="https://saugi.me">Saugi</a></p>
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="https://saugi.me">Saugi</a></p>
                     </div>
                 </div>
             </footer>
@@ -49,6 +47,8 @@
     <script src="{{ asset('mazer/assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('mazer/assets/js/pages/dashboard.js') }}"></script>
 
+    {{-- Sweet Alert --}}
+    @include('sweetalert::alert')
 </body>
 
 </html>

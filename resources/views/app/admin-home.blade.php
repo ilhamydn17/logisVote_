@@ -2,7 +2,7 @@
 
 @section('content-admin')
     {{-- TITLE PAGE --}}
-    <div class="page-title border border-warning">
+    <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <h3>Vertical Layout with Navbar</h3>
@@ -21,8 +21,8 @@
     </div>
 
     {{-- BODY PAGE --}}
-    <section class="border border-danger">
-        <div class="card">
+    <section>
+        <div class="card shadow">
             <div class="card-header">
                 <h4 class="card-title">Example Content</h4>
             </div>

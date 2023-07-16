@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\VoteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +17,16 @@ use Illuminate\Support\Facades\Route;
 
 // --> ROUTE APP <--
 Route::middleware('auth')->group(function () {
-    Route::get('/admin-home', function () {
-        return view('app.admin-home');
-    });
+    Route::get('/admin-home', [UserController::class, 'adminHome'])->name('admin.home');
+    Route::get('user-home',[UserController::class,'userHome'])->name('user.home');
+    Route::get('user/{candidate}/vote', [VoteController::class, 'doVote'])->name('user.vote');
 });
+
+Route::get('/', function () {
+    return view('app.landing-page');
+});
+
+
 
 
 
