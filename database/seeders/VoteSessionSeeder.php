@@ -17,6 +17,7 @@ class VoteSessionSeeder extends Seeder
     {
         VoteSession::create([
             'tahun_periode'=>'2023/2024'
+            
         ]);
     }
 }

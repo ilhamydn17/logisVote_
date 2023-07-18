@@ -47,7 +47,7 @@ FilePond.create(document.querySelector(".imgbb-filepond"), {
       // you can change it by your client api key
       request.open(
         "POST",
-        "https://api.imgbb.com/1/upload?key=762894e2014f83c023b233b2f10395e2"
+        "http://127.0.0.1:8000/img-upload"
       );
 
       request.upload.onprogress = (e) => {

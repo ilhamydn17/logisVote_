@@ -1,8 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VoteController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\VoteSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,15 @@ Route::middleware('auth')->group(function () {
     // ADMIN
     Route::get('/admin-home', [UserController::class, 'adminHome'])->name('admin.home');
     Route::get('/admin-candidates', [UserController::class, 'adminCandidate'])->name('admin.candidate');
+    Route::get('/admin-vote-session', [UserController::class, 'adminListSession'])->name('admin.list-session');
+    Route::post('admin/{voteSession}/action', [VoteSessionController::class, 'adminAction'])->name('admin.action');
+    Route::resource('/vote-session', VoteSessionController::class);
+    Route::get('admin/{id}/candidate', [CandidateController::class, 'show'])->name('admin.detail-candidate');
+    Route::put('admin/{candidate}/candidate', [CandidateController::class, 'update'])->name('admin.detail-candidate-update');
+    //
 });
+
+Route::post('/img-upload',[VoteSessionController::class, 'imgUpload']);
 
 Route::get('/', function () {
     return view('app.landing-page');

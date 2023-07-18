@@ -104,18 +104,20 @@
                                     </div>
                                 @else
                                     @forelse ($voteSession->candidates as $item)
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-3">
                                             <div class="card shadow">
                                                 <div class="card-content text-center py-3">
                                                     <img src="{{ Storage::url($item->foto) }}"
                                                         class="rounded rounded-circle" alt="singleminded"
-                                                        width="200px">
+                                                        width="160px">
                                                     <div class="card-body">
                                                         <h5 class="card-title">{{ $item->nama }}</h5>
                                                         <div>
                                                             <h4>{{ $item->no_urut }}</h4>
-                                                            <a href="" class="btn btn-primary" data-bs-toggle="modal"
-                                                            data-bs-target="#exampleModalLong-{{ $item->id }}">Visi & Misi</a>
+                                                            <a href="" class="btn btn-primary"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#exampleModalLong-{{ $item->id }}">Visi
+                                                                & Misi</a>
 
                                                             {{-- button --}}
                                                             <a class="btn btn-warning" data-bs-toggle="modal"
@@ -131,11 +133,11 @@
                             </div>
                         </div>
 
-                         <!--Modal Visi Misi-->
-                        @forelse ( $voteSession->candidates as $item)
-                            <div class="modal fade" id="exampleModalLong-{{ $item->id }}" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
+                        <!--Modal Visi Misi-->
+                        @forelse ($voteSession->candidates as $item)
+                            <div class="modal fade" id="exampleModalLong-{{ $item->id }}" tabindex="-1"
+                                role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLongTitle">Visi & Misi Kandidat</h5>

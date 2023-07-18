@@ -21,6 +21,12 @@ class UserController extends Controller
         return view('app.admin.admin-dataKandidat', compact('candidate'));
     }
 
+    public function adminListSession(){
+        $this->authorize('is-admin');
+        $listSesi = VoteSession::with('candidates')->latest()->get();
+        return view('app.admin.admin-listSesi', compact('listSesi'));
+    }
+
     public function userHome(){
         $this->authorize('is-user');
         $voteSession = VoteSession::with('candidates')->latest()->first();

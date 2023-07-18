@@ -32,7 +32,8 @@ class VoteController extends Controller
         }
 
          // redirect ke user home untuk melakukan logout
-         Alert::success('Berhasil', 'Anda telah melakukan voting');
+         Alert::toast('Berhasil melakukan voting', 'success');
          return redirect()->route('user.home');
     }
+
 }

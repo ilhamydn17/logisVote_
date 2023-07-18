@@ -5,7 +5,6 @@ namespace App\Providers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Fortify;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Actions\Fortify\CreateNewUser;
 use Illuminate\Support\ServiceProvider;
@@ -31,25 +30,25 @@ class FortifyServiceProvider extends ServiceProvider
             new class implements LoginResponse {
             public function toResponse($request)
             {
-                if (auth()->user()->role == 'admin') {
-                    return redirect()->route('admin.home');
-                }
-
-                if (auth()->user()->role == 'user') {
-                    return redirect()->route('user.home');
-                }
-
-                // if(auth()->user()->role == 'admin'){
-                //     return $request->wantsJson() ?
-                //         response()->json(['two_factor'=>false]) :
-                //         redirect()->intended(config('fortify.home'));
+                // if (auth()->user()->role == 'admin') {
+                //     return redirect()->route('admin.home');
                 // }
 
-                // if(auth()->user()->role == 'user'){
-                //     return $request->wantsJson() ?
-                //         response()->json(['two_factor'=>false]) :
-                //         redirect()->intended(config('fortify.home'));
+                // if (auth()->user()->role == 'user') {
+                //     return redirect()->route('user.home');
                 // }
+
+                if(auth()->user()->role == 'admin'){
+                    return $request->wantsJson() ?
+                        response()->json(['two_factor'=>false]) :
+                        redirect()->intended('/admin-home');
+                }
+
+                if(auth()->user()->role == 'user'){
+                    return $request->wantsJson() ?
+                        response()->json(['two_factor'=>false]) :
+                        redirect()->intended('/user-home');
+                }
             }
             }
         );
@@ -92,7 +91,7 @@ class FortifyServiceProvider extends ServiceProvider
                 if ($user->is_voted) {
                     Alert::toast('Anda sudah melakukan voting!', 'error');
                     return false;
-                }elseif($voteSession->session_run == 2 && $user->role == 'user'){
+                }elseif($voteSession->session_run != 1  && $user->role == 'user'){
                     Alert::toast('Belum ada sesi voting saat ini', 'warning');
                     return false;
                 }
@@ -103,6 +102,10 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::loginView(function () {
             return view('app.auth.login');
+        });
+
+        Fortify::registerView(function () {
+            return view('app.auth.register');
         });
     }
 }

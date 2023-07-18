@@ -61,8 +61,11 @@
                 <span>Voting Session</span>
             </a>
             <ul class="submenu ">
-                <li class="submenu-item ">
-                    <a href="component-tooltip.html">Tooltip</a>
+                <li class="submenu-item">
+                    <a href="{{ route('admin.list-session') }}">List Sesi</a>
+                </li>
+                <li class="submenu-item">
+                    <a href="component-tooltip.html">Monitor Voting</a>
                 </li>
             </ul>
         </li>

@@ -15,6 +15,13 @@
     <link rel="stylesheet" href="{{ asset('mazer/assets/extensions/simple-datatables/style.css') }}">
     <link rel="stylesheet" href="{{ asset('mazer/assets/css/pages/simple-datatables.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('mazer/assets/extensions/quill/quill.snow.css') }}">
+    <link rel="stylesheet" href="{{ asset('mazer/assets/extensions/quill/quill.bubble.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('mazer/assets/extensions/filepond/filepond.css') }}">
+    <link rel="stylesheet" href="{{ asset('mazer/assets/extensions/filepond-plugin-image-preview/filepond-plugin-image-preview.css') }}">
+    <link rel="stylesheet" href="{{ asset('mazer/assets/css/pages/filepond.cs') }}">
+
 </head>
 
 <body>
@@ -56,10 +63,16 @@
     <script src="{{ asset('mazer/assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('mazer/assets/js/pages/dashboard.js') }}"></script>
 
-
-
     {{-- Sweet Alert --}}
     @include('sweetalert::alert')
+
+    {{-- Quill --}}
+    <script src="{{ asset('mazer/assets/extensions/quill/quill.min.js') }}"></script>
+    <script src="{{ asset('mazer/assets/js/pages/quill.js') }}"></script>
+
+    {{-- Filepond --}}
+    <script src="{{ asset('mazer/assets/extensions/filepond/filepond.js') }}"></script>
+    <script src="{{ asset('mazer/assets/js/pages/filepond.js') }}"></script>
 </body>
 
 </html>
