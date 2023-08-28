@@ -25,8 +25,7 @@
                         will inspire and motivate us to reach new <br />
                         heights.
                     </p>
-                    <a class="btn btn-primary" href="{{ route('login') }}" role="button" style="width: 200px; padding: 10px"><b>GET
-                            STARTED</b></a>
+                    <a class="btn btn-primary" href="{{ route('login') }}" role="button" style="width: 200px; padding: 10px"><b>GET STARTED</b></a>
                 </div>
                 <div class="col">
                     <img class="mx-auto d-block" src="img/home.png" alt="" style="width: 566px" />
