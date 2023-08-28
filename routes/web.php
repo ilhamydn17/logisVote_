@@ -27,11 +27,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin-home', [UserController::class, 'adminHome'])->name('admin.home');
     Route::get('/admin-candidates', [UserController::class, 'adminCandidate'])->name('admin.candidate');
     Route::get('/admin-vote-session', [UserController::class, 'adminListSession'])->name('admin.list-session');
-    Route::post('admin/{voteSession}/action', [VoteSessionController::class, 'adminAction'])->name('admin.action');
-    Route::resource('/vote-session', VoteSessionController::class);
     Route::get('admin/{id}/candidate', [CandidateController::class, 'show'])->name('admin.detail-candidate');
     Route::put('admin/{candidate}/candidate', [CandidateController::class, 'update'])->name('admin.detail-candidate-update');
-    //
+    Route::get('admin/charts', [VoteController::class, 'chart'])->name('admin.chart');
+    Route::get('admin/get-data-chart', [VoteController::class, 'getDataChart'])->name('admin.getDataChart');
+    Route::get('admin/list-users', [UserController::class, 'listUsers'])->name('admin.list-users');
+    Route::resource('/vote-session', VoteSessionController::class);
+    Route::post('admin/{voteSession}/action', [VoteSessionController::class, 'adminAction'])->name('admin.action');
+    Route::post('admin/import-users', [UserController::class, 'importUsers'])->name('admin.import-users');
+    Route::post('admin/add-users', [UserController::class, 'storeUser'])->name('admin.add-users');
 });
 
 Route::post('/img-upload',[VoteSessionController::class, 'imgUpload']);

@@ -19,6 +19,7 @@ class VoteSessionController extends Controller
 
     public function create()
     {
+        if(VoteSession::sessionExist()){ Alert::warning('Peringatan', 'Terdapat sesi yang masih berjalan'); return redirect()->route('admin.list-session');}
         return view('app.admin.admin-create-session');
     }
 
@@ -62,8 +63,7 @@ class VoteSessionController extends Controller
 
     public function edit(VoteSession $voteSession)
     {
-        dd($voteSession);
-        return view('app.admin.admin-detailKandidatSesi');
+
     }
 
 
@@ -73,23 +73,11 @@ class VoteSessionController extends Controller
     }
 
     public function adminAction(VoteSession $voteSession){
-        if($voteSession->session_run == 0){
-            $voteSession->update([
-                'session_run'=>1
-            ]);
-            Alert::success('Berhasil', 'Sesi voting telah dimulai');
-            return redirect()->back();
-        }elseif($voteSession->session_run == 1){
-            $voteSession->update([
-                'session_run'=>2
-            ]);
-            Alert::success('Berhasil', 'Sesi voting telah dihentikan');
-            return redirect()->back();
-        }
+        return $voteSession->actionCheck();
     }
 
     public function destroy($id)
     {
-        //
+
     }
 }

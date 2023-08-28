@@ -57,5 +57,14 @@ class CandidateSeeder extends Seeder
             'foto'=> 'candidate-img/tara.jpg',
         ]);
 
+        Candidate::create([
+            'vote_session_id'=>1,
+            'nama'=>'Rael Handy Gallant',
+            'no_urut' => '04',
+            'visi'=> 'visi rael',
+            'misi'=> 'misi rael',
+            'foto'=> 'candidate-img/rael.png',
+        ]);
+
     }
 }

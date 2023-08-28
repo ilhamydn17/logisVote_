@@ -21,7 +21,6 @@ class CandidateController extends Controller
         }
         $candidate->update($request->validated() + ['foto'=>$foto]);
 
-
         Alert::toast('Data Berhasil di update', 'success');
         return redirect()->back();
     }

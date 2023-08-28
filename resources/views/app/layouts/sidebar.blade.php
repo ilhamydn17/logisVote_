@@ -1,7 +1,7 @@
 <div class="sidebar-header position-relative">
     <div class="d-flex justify-content-between align-items-center">
         <div class="logo">
-            <a href="index.html">UKMPP</a>
+            <a href="index.html">LogisVote</a>
         </div>
         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -55,6 +55,13 @@
             </a>
         </li>
 
+        <li class="sidebar-item">
+            <a href="{{ route('admin.list-users') }}" class='sidebar-link'>
+                <i class="fa-solid fa-users"></i>
+                <span>Data User</span>
+            </a>
+        </li>
+
         <li class="sidebar-item  has-sub">
             <a href="#" class='sidebar-link'>
                 <i class="fas fa-calendar-check"></i>
@@ -65,7 +72,7 @@
                     <a href="{{ route('admin.list-session') }}">List Sesi</a>
                 </li>
                 <li class="submenu-item">
-                    <a href="component-tooltip.html">Monitor Voting</a>
+                    <a href="{{ route('admin.chart') }}">Monitor Voting</a>
                 </li>
             </ul>
         </li>

@@ -26,4 +26,9 @@ class Candidate extends Model
     public function vote_session(){
         return $this->belongsTo(VoteSession::class,'vote_session_id','id');
     }
+
+    public function hasVoted(){
+        $countVote = $this->jumlah_vote;
+        return $this->update(['jumlah_vote'=> ++$countVote]);
+    }
 }

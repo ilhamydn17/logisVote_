@@ -29,7 +29,7 @@ class VoteSessionCreateRequest extends FormRequest
         // $visi1 = $request->input('visi1');
         // $misi1 = $request->input('misi1');
         return [
-            'tahun_periode'=>'required',
+            'tahun_periode'=>'required|unique:vote_session,tahun_periode',
 
             'nama_kandidat1'=>'required',
             'no_urut1'=>'required',

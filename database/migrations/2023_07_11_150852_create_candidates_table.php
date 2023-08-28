@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('visi');
             $table->text('misi');
             $table->string('foto');
+            $table->integer('jumlah_vote')->default(0)->nullable();
             $table->timestamps();
         });
     }

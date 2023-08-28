@@ -38,16 +38,16 @@ class FortifyServiceProvider extends ServiceProvider
                 //     return redirect()->route('user.home');
                 // }
 
-                if(auth()->user()->role == 'admin'){
+                if(auth()->user()->role === 'admin'){
                     return $request->wantsJson() ?
                         response()->json(['two_factor'=>false]) :
-                        redirect()->intended('/admin-home');
+                        redirect()->intended(route('admin.home'));
                 }
 
-                if(auth()->user()->role == 'user'){
+                if(auth()->user()->role === 'user'){
                     return $request->wantsJson() ?
                         response()->json(['two_factor'=>false]) :
-                        redirect()->intended('/user-home');
+                        redirect()->intended(route('user.home'));
                 }
             }
             }

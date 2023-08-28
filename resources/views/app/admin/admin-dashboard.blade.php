@@ -1,5 +1,7 @@
 @extends('app.layouts.master')
 
+@section('title','Halaman Dashboard')
+
 @section('content-admin')
     {{-- TITLE PAGE --}}
     <div class="page-title">
@@ -13,7 +15,7 @@
 
     {{-- BODY PAGE --}}
     <section>
-        <div class="card shadow">
+        <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Sesi Voting Terakhir</h4>
             </div>
@@ -45,6 +47,34 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="divider">
+                    <div class="divider-text">
+                        <h4>Kandidat Terpilih</h4>
+                    </div>
+                </div>
+                @if ($choosenCandidate->jumlah_vote == 0)
+                <div class="alert alert-info text-center" role="alert">
+                   <p>Data Belum Tersedia.</p>
+                  </div>
+                @else
+                    <div class="card-content text-center py-3">
+                        <img src="{{ Storage::url($choosenCandidate->foto) }}" class="rounded rounded-circle"
+                            alt="singleminded" width="200px">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $choosenCandidate->nama }}</h5>
+                            <div>
+                                <h4>{{ $choosenCandidate->no_urut }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </section>

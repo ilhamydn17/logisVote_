@@ -1,5 +1,7 @@
 @extends('app.layouts.master')
 
+@section('title','Halaman List Sesi')
+
 @section('content-admin')
     {{-- TITLE PAGE --}}
     <div class="page-title">

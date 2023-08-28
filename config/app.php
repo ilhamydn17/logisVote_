@@ -187,8 +187,9 @@ return [
          * Package Service Providers...
          */
 
-         FortifyServiceProvider::class,
-         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        FortifyServiceProvider::class,
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Application Service Providers...
